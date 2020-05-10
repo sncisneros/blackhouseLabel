@@ -1,12 +1,40 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+module.exports = function Cart(myCart){
+    //update existing or new cart
+    this.items = myCart.items || {};
+    this.itemQty = myCart.itemQty || 0;
+    this.totalPrice = myCart.totalPrice || 0;
 
-let cartSchema = new mongoose.Schema({
-    totalCost : Number,
-    items : [{
-        type : Schema.Types.ObjectId,
-        ref : 'Item'
-    }]
-})
+    //add item to cart
+    this.add = function(item, itemId){
+        var newItem = this.items[itemId];
+        if(!newItem){
+            newItem = this.items[itemId] = {item: item, quantity:0, price:0};
+        }
 
-module.exports = mongoose.model('Cart', cartSchema);
+        //update item qty and price, then update cart 
+        newItem.quantity++;
+        newItem.price = newItem.item.productPrice*newItem.quantity;
+
+        this.itemQty++;
+        this.totalPrice += newItem.item.productPrice;
+    };
+
+    this.remove = function(item, itemId){
+        var myItem = this.items[itemId];
+
+        myItem.quantity--;
+        this.itemQty--;
+        myItem.Price = myItem.productPrice * myItem.quantity;
+        this.totalPrice -= myItem.productPrice;
+        
+    }
+
+    this.cartArray = function(){
+        var arr =[];
+        for(var id in this.items){
+            arr.push(this.items[id]);
+        }
+        return arr;
+    }
+
+}

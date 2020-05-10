@@ -6,9 +6,8 @@ const Cart = require('../models/cart');
 
 //GET request for ALL items
   router.get('/', (req, res) => {
-    Cart.find ({}, (error, carts) => {
-        res.json(carts);
-    })
+    console.log(req.session.cart);
 })
+
   
   module.exports = router;

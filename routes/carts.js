@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 const Cart = require('../models/cart');
 
 //GET request for ALL items
-  router.get('/', (req, res) => {
+  router.get('/my-cart', (req, res) => {
     console.log(req.session.cart);
 })
 

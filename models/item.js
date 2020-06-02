@@ -1,5 +1,6 @@
 'use strict';
 const mongoose = require('mongoose');
+const mongoose_fuzzy_searching = require('mongoose-fuzzy-searching');
 const Schema = mongoose.Schema;
 
 let itemSchema = new mongoose.Schema({
@@ -13,4 +14,5 @@ let itemSchema = new mongoose.Schema({
     }]
 });
 
+itemSchema.plugin(mongoose_fuzzy_searching, {fields: ['productName', 'description']});
 module.exports = mongoose.model('Item', itemSchema);

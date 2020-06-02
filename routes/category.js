@@ -7,7 +7,7 @@ const Item = require('../models/item');
 const Cart = require('../models/cart');
 
 //get all items within a category
-router.get('/:categoryName', function(req, res, next){
+router.get('/category/:categoryName', function(req, res, next){
     let id = req.params.categoryName;
     //array of embedded items
 
@@ -22,7 +22,7 @@ router.get('/:categoryName', function(req, res, next){
 
 
 //get item from category by itemid
-router.get('/:categoryName/:itemId', function(req, res, next){
+router.get('/category/:categoryName/:itemId', function(req, res, next){
     let id = req.params.categoryName;
 
     Category.find({categoryName: id}).populate('items').exec( function(err, category){
@@ -34,7 +34,7 @@ router.get('/:categoryName/:itemId', function(req, res, next){
 
 
 //update cart with added item
-router.get('/:categoryName/:itemId/addToCart', function(req, res, next){
+router.get('/category/:categoryName/:itemId/addToCart', function(req, res, next){
     var cart = new Cart(req.session.cart ? req.session.cart : {} );
 
     Item.findOne({_id: req.params.itemId}, function(error, item){

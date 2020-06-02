@@ -7,6 +7,8 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
+var cors = require('cors');
+var bodyParser = require('body-parser');
 
 
 var indexRouter = require('./routes/index');
@@ -40,12 +42,14 @@ app.use(session({
 }));
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
+app.use(bodyParser.json());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/category', categoryRouter);
-app.use('/carts', cartsRouter);
-app.use('/home', homeRouter);
+app.use('/api', usersRouter);
+app.use('/api', categoryRouter);
+app.use('/api', cartsRouter);
+app.use('/api', homeRouter);
 
 //to access session in all templates
 app.use(function(req, res, next){

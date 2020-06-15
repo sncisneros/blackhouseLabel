@@ -4,6 +4,7 @@ const mongoose_fuzzy_searching = require('mongoose-fuzzy-searching');
 const Schema = mongoose.Schema;
 
 let itemSchema = new mongoose.Schema({
+    productSKU: Number,
     productName : String,
     description : String,
     productPrice : Number,

@@ -22,11 +22,11 @@ router.get('/category/:categoryName', function(req, res, next){
 
 
 //get item from category by itemid
-router.get('/category/:categoryName/:itemId', function(req, res, next){
+router.get('/category/:categoryName/:productSKU', function(req, res, next){
     let id = req.params.categoryName;
 
     Category.find({categoryName: id}).populate('items').exec( function(err, category){
-        Item.findOne({_id: req.params.itemId}, function(error, item){
+        Item.findOne({_id: req.params.productSKU}, function(error, item){
             return res.status(200).json(item)
         })
     })
@@ -34,10 +34,10 @@ router.get('/category/:categoryName/:itemId', function(req, res, next){
 
 
 //update cart with added item
-router.get('/category/:categoryName/:itemId/addToCart', function(req, res, next){
+router.get('/category/:categoryName/:productSKU/add', function(req, res, next){
     var cart = new Cart(req.session.cart ? req.session.cart : {} );
 
-    Item.findOne({_id: req.params.itemId}, function(error, item){
+    Item.findOne({productSKU: req.params.productSKU}, function(error, item){
         if (error){
             return res.status(404).json('OOPS, SOMETHING WENT WRONG HONEY..');
         }

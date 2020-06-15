@@ -9,6 +9,7 @@ var flash = require('connect-flash');
 var MongoStore = require('connect-mongo')(session);
 var cors = require('cors');
 var bodyParser = require('body-parser');
+var env = require('dotenv').config();
 
 
 var indexRouter = require('./routes/index');
@@ -16,6 +17,7 @@ var usersRouter = require('./routes/users');
 var categoryRouter = require('./routes/category');
 var cartsRouter = require('./routes/carts');
 var homeRouter = require('./routes/home');
+var adminRouter = require('./routes/admin');
 
 
 var app = express();
@@ -23,7 +25,7 @@ var app = express();
 //mongoose connection
 mongoose.connection.on('connected', () => console.log('Mongoose connected.'));
 mongoose.connection.on('disconnected', () => console.log("Mongoose disconnected."));
-mongoose.connect('mongodb://localhost/blackhouse', {useNewUrlParser: true});
+mongoose.connect(process.env.DBURL, {useNewUrlParser: true, useFindAndModify: false});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,10 +35,27 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(cors({origin: [
+  "http://localhost:4200"
+], credentials: true}));
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers",
+//   "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  
+//   if(req.method === 'OPTIONS'){
+//     res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+//     res.status(200).json({});
+//   }
+//   next();
+// })
+
 app.use(session({
   secret: 'issasecretokr',
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
+  cookie: { secure: false },
   store: new MongoStore({ mongooseConnection: mongoose.connection}),
   cookie: {maxAge: 180 * 60 * 1000}
 }));
@@ -50,12 +69,14 @@ app.use('/api', usersRouter);
 app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
+app.use('/api', adminRouter);
 
 //to access session in all templates
 app.use(function(req, res, next){
   res.locals.session = req.session;
   next();
 })
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -74,3 +95,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+dentials: true

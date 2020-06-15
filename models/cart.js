@@ -31,10 +31,12 @@ module.exports = function Cart(myCart){
 
     this.cartArray = function(){
         var arr =[];
-        for(var id in this.items){
-            arr.push(this.items[id]);
-        }
+        for (count = 0; count < this.items.length; count++) {
+            for (count2 = 0; count2 < this.items[count].length; count2++) {
+              System.out.println(this.items[countOne]._id);
+            }
         return arr;
     }
 
+}
 }

@@ -7,6 +7,7 @@ const Item = require('../models/item');
 
 //GET request for ALL categories, returning only category name
   router.get('/home', (req, res) => {
+
     Category.find(function (err, categories) {
         if(err) { return handleError(res, err); }
         return res.status(200).json(categories);

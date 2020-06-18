@@ -7,6 +7,7 @@ const Cart= require('./models/cart');
 const Category = require('./models/category');
 const User = require('./models/users');
 const Order = require('./models/order');
+const Discount = require('./models/discount');
 
 //node blackhouse-inserts.js
 
@@ -157,6 +158,7 @@ async function run() {
     await Item.remove();
     await User.remove();
     await Order.remove();
+    await Discount.remove();
     // adding data
     await admin.save();
     await item1.save();  

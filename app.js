@@ -18,7 +18,7 @@ var categoryRouter = require('./routes/category');
 var cartsRouter = require('./routes/carts');
 var homeRouter = require('./routes/home');
 var adminRouter = require('./routes/admin');
-
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -70,6 +70,7 @@ app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
 app.use('/api', adminRouter);
+app.use('/api', loginRouter);
 
 //to access session in all templates
 app.use(function(req, res, next){

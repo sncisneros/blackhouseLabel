@@ -38,6 +38,10 @@ router.post('/login', function (req, res, next) {
     });
 });
 
+router.post('/logout', function(req, res, next){
+    
+})
+
 //create a user and hash password
 router.post('/login/create-user', function (req, res, next) {
     let password = req.body.password;
@@ -46,7 +50,7 @@ router.post('/login/create-user', function (req, res, next) {
     bcrypt.hash(password, saltRounds, function (err, hash) {
       console.log(hash);
       newUser = new User({
-          admin: 'true',
+          admin: 'TRUE',
           firstName: req.body.firstName,
           lastName: req.body.lastName,
           username: req.body.username,

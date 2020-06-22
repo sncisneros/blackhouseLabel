@@ -149,7 +149,14 @@ const category4 = new Category({
     items: [item4, item9]
 })
 
-
+// const discount1 = new Discount({
+//     _id: new mongoose.Types.ObjectId(),
+//     code: "NEW15",
+//     isPercent: "false",
+//     amount: "15",
+//     expiryDate: "2020-30-06",
+//     isActive: true
+// })
 
 async function run() {
     await mongoose.connect('mongodb://localhost/blackhouse');
@@ -167,9 +174,10 @@ async function run() {
     await item4.save();
     await item5.save();
     await category1.save();
-    await category2.save()
+    await category2.save();
     await category3.save();
     await category4.save();
+    //await discount1.save();
 
     await mongoose.disconnect();
   }

@@ -15,6 +15,19 @@ const Order = require('../models/order');
     res.status(200).json(cart)
 });
 
+// router.post('/my-cart/delete', (req, res, next)=>{
+//    if(!req.session.cart){
+//     return res.json('cart is empty!');
+//   }
+
+//   itemId = req.body.itemId;
+//   var cart = new Cart(req.session.cart);
+//   cart.remove(itemId)
+
+//       req.session.cart = cart;
+//       res.status(200).json(cart);
+// })
+
   router.get('/checkout', (req, res, next) => {
     if(!req.session.cart){
       return res.json('cart is empty!');
@@ -26,41 +39,38 @@ const Order = require('../models/order');
   router.post('/checkout', (req, res, next) => {
     var cart = new Cart(req.session.cart);
     
+    
     let order = new Order({
       _id: new mongoose.Types.ObjectId(),
       firstName: req.body.firstName,
       lastName : req.body.lastName,
       custEmail: req.body.email,
-      custAddress: req.body.address,
+      custAddress: {
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip
+      },
       cart: cart,
       status: ['OPEN']
     });
+
+    
    
-    order.save()
+   //send confirmation email
+    order.save() 
     .then(res.status(200).json({order, message: 'order has been submited!'}))
     .catch(err=>{
       console.log(err);
       res.status(500).json({error: err})
     });
-    
    })
 
+   router.post('/my-cart/clear', function(req, res, next){
+     var cart = new Cart(req.session.cart)
+     req.session.destroy();
+      console.log(cart);
+      
+   })
  
-// router.get('/my-cart/:itemId/removeFromCart', function(req, res, next){
-//   var cart = new Cart(req.session.cart ? req.session.cart : {} );
-
-//   Item.findOne({_id: req.params.itemId}, function(error, item){
-//       if (error){
-//           return res.status(404).json('OOPS, SOMETHING WENT WRONG HONEY..');
-//       }
-
-//       cart.add(item, item.id);
-//       req.session.cart = cart;
-//       //testing purposes
-
-//       console.log(req.session.cart);
-//       res.status(200).json(req.session.cart);
-//   });
-// });
-  
   module.exports = router;

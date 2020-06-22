@@ -15,16 +15,15 @@ let discountSchema = new mongoose.Schema({
         required: true
     },
     expiryDate: {
-        type: String,
+        type: Date,
         required: true,
-        default: '',
     },
     isActive: {
         type: Boolean,
         required: true,
-        default: true
     }
 });
 
+//create function to expire discount
 
 module.exports = mongoose.model('Discount', discountSchema);

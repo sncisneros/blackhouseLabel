@@ -6,7 +6,8 @@ let categorySchema = new mongoose.Schema({
     items: [{
         type: Schema.Types.ObjectId,
         ref: 'Item'
-    }]
+    }],
+    imagePath: String
 })
 
 module.exports = mongoose.model('Category', categorySchema);

@@ -9,6 +9,7 @@ const Item = require('../models/item');
 const Inventory = require('../models/inventory');
 const Order = require('../models/order');
 const Discount = require('../models/discount');
+const Subscriber = require('../models/subscriber');
 
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET;
@@ -45,6 +46,18 @@ router.post('/admin/orders/:orderId/status/:status', function(req, res, next){
         return res.status(200).json(order);
     })
 })
+
+//add category
+router.post('/admin/category', function(req, res, next){
+    let category = new Category(req.body)
+
+    category.save()
+        .then(res.status(200).send(category))
+        .catch(err=>{
+            return res.json(err);
+});
+});
+
 
 //get inventory count for productSKU
 router.get('/admin/inventory', function(req, res, next){
@@ -141,12 +154,12 @@ router.get('/admin/discounts', function(req, res, next){
 //send subscription emails
 router.post('/admin/group-email', function(req, res, next){
 
-    var transporter = nodemailer.createTransport({
+        var transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
         auth: {
-          user: "sfierce07@gmail.com",
-          pass: "m4d3fre$h"
+          user: "theblackhouselabel@gmail.com",
+          pass: "6Figuremonths11"
         }
       });
 
@@ -159,9 +172,9 @@ router.post('/admin/group-email', function(req, res, next){
      });
 
       var mailOptions = {
-        from: 'sfierce07@gmail.com',
-        to: 'snicole.cisneros@gmail.com',
-        subject: 'Sending Email using Node.js',
+        from: 'The BlackHouse Label <theblackhouselabel@gmail.com>',
+        to: subscriber.email,
+        subject: req.body.subject,
         html: '<p><center>' + req.body.text + '</center></p>'
       };
 

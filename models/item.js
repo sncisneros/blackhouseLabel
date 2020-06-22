@@ -10,6 +10,9 @@ let itemSchema = new mongoose.Schema({
     productPrice : Number,
     size:['SMALL', 'MEDIUM', 'LARGE', 'XLARGE'],
     stock: ['LOWSTOCK', 'INSTOCK'],
+    color: [{
+        name: String
+    }],
     imagePath: [{
         type: String
     }]

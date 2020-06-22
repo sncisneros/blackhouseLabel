@@ -36,8 +36,11 @@ router.get('/category/:categoryName/:productSKU', function(req, res, next){
 //update cart with added item
 router.get('/category/:categoryName/:productSKU/add', function(req, res, next){
     var cart = new Cart(req.session.cart ? req.session.cart : {} );
+    const size = req.params.size;
+    var id  = req.params.productSKU;
 
-    Item.findOne({productSKU: req.params.productSKU}, function(error, item){
+    Item.findOne({productSKU: id}, function(error, item){
+        console.log(item);
         if (error){
             return res.status(404).json('OOPS, SOMETHING WENT WRONG HONEY..');
         }

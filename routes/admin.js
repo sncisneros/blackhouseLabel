@@ -47,6 +47,14 @@ router.post('/admin/orders/:orderId/status/:status', function(req, res, next){
     })
 })
 
+//return all orders
+router.get('admin/orders/all', function(req, res, next){
+    Order.find(function (err, orders) {
+        if(err) { return handleError(res, err); }
+        return res.status(200).json(orders);
+      });
+})
+
 //add category
 router.post('/admin/category', function(req, res, next){
     let category = new Category(req.body)

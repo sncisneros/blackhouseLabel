@@ -9,6 +9,7 @@ const Order = require('../models/order');
 
 //GET request for ALL items
   router.get('/my-cart', (req, res, next) => {
+    console.log(req.session);
     if(!req.session.cart){
       return res.json('cart is empty!');
     }

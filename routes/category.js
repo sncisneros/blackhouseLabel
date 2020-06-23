@@ -26,7 +26,7 @@ router.get('/category/:categoryName/:productSKU', function(req, res, next){
     let id = req.params.categoryName;
 
     Category.find({categoryName: id}).populate('items').exec( function(err, category){
-        Item.findOne({_id: req.params.productSKU}, function(error, item){
+        Item.findOne({productSKU: req.params.productSKU}, function(error, item){
             return res.status(200).json(item)
         })
     })

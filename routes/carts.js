@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
+var env = require('dotenv').config();
+// const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
+// const stripe = require('stripe')(stripeSecretKey);
+
 var nodemailer = require('nodemailer');
 
 const Cart = require('../models/cart');
@@ -42,13 +46,13 @@ const Order = require('../models/order');
   // checkout and save order with confrim email
   router.post('/checkout', (req, res, next) => {
     var cart = new Cart(req.session.cart);
-    
+    var email = req.body.email;
     
     let order = new Order({
       _id: new mongoose.Types.ObjectId(),
       firstName: req.body.firstName,
       lastName : req.body.lastName,
-      custEmail: req.body.email,
+      custEmail: email,
       custAddress: {
         address: req.body.address,
         city: req.body.city,
@@ -62,9 +66,19 @@ const Order = require('../models/order');
 
 
    
-   //send confirmation email
+   //charge and save order
     order.save();
 
+    // (async () => {
+    //   const charge = await stripe.charges.create({
+    //     amount: cart.totalPrice,
+    //     currency: 'usd',
+    //     source: 'tok_visa',
+    //     receipt_email: email,
+    //   });
+    // })();
+
+    //send email
       var transporter = nodemailer.createTransport({
           host: "smtp.gmail.com",
           port: 465,
@@ -100,7 +114,7 @@ const Order = require('../models/order');
             return error;
           } 
             console.log('Email sent: ' + info.response);
-            return res.status(200).json(info);
+            return res.status(200).json(info).redirect('/my-cart/clear');
           });  
     
    })

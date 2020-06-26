@@ -35,9 +35,23 @@ const item1 = new Item({
     'Skirt and Top are slightly see through and made of a mesh material' +
     'Skirt has an elastic band to provide stretch' +
     'Model is 5’0 wearing a Small',
-    productPrice: '10.99',
-    size: ['SMALL'],
-    stock: ['INSTOCK'],
+    productPrice: 45,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:1
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 2
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 0
+        },
+        ],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -52,9 +66,27 @@ const item2 = new Item({
     'Pants are long and are tall girl friendly. ' +
     'Has an elastic band to provide a stretch.' +
     'Model is 5’0 wearing a Small',
-    productPrice: '45.95',
-    size: ['SMALL'],
-    stock: ['LOWSTOCK'],
+    productPrice: 50,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:1
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 0
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 2
+        },
+        {
+        size: 'xlarge',
+        color: 'multi',
+        quantity: 2
+        }],
     imagePath: ['g67n.jpg', 'bds09o.jpb']
 })
 
@@ -66,9 +98,27 @@ const item3 = new Item({
     'Blazer comes down at a V angle in the front. ' +
     'Chains hanging are gold and can easily hang below ' +
     'Model is 5’0 wearing a Small',
-    productPrice: '25.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 85,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:1
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 3
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 1
+        },
+        {
+        size: 'xlarge',
+        color: 'multi',
+        quantity: 0
+        }],
     imagePath:['4hfd.jpg', 'g8ik0.jpg']
 })
 
@@ -81,9 +131,45 @@ const item4 = new Item({
     'Denim is of a thick material but has a slight stretch.' +
     'These pants come mid to high waist depending on torso length.' +
     'Model is 5’6 wearing Small',
-    productPrice: '29.99',
-    size: ['MEDIUM'],
-    stock: ['INSTOCK'],
+    productPrice: 55,
+    variation: [{
+        size: 'small',
+        color: 'medium',
+        quantity:5
+        },
+        {
+        size: 'medium',
+        color: 'medium',
+        quantiy: 6
+        },
+        {
+        size:'large',
+        color: 'medium',
+        quantity: 5
+        },
+        {
+        size: 'xlarge',
+        quantity: 0
+        },
+        {
+            size: 'small',
+            color: 'light',
+            quantity:5
+            },
+            {
+            size: 'medium',
+            color: 'light',
+            quantiy: 6
+            },
+            {
+            size:'large',
+            color: 'light',
+            quantity: 5
+            },
+            {
+            size: 'xlarge',
+            quantity: 0
+            }],
     imagePath:['j34yd.jpg', 'gt7j0.jpg']
 })
 
@@ -95,8 +181,16 @@ const item5 = new Item({
     'Has a very stretchy material to fit all body types.' +
     'Model is 5’6 wearing a S/M',
     productPrice: '49.99',
-    size: ['SMALL'],
-    stock: ['INSTOCK'],
+    variation: [{
+        size: 'sm',
+        color:'multi',
+        quantity:2
+        },
+        {
+        size: 'ml',
+        color:'multi',
+        quantiy: 5
+        }],
     imagePath:['r44yd.jpg', 'm00ghy.jpg']
 })
 
@@ -110,8 +204,26 @@ const item6 = new Item({
     'Has Faux pockets' +
     'Model is 5’6 wearing a Small',
     productPrice: '39.99',
-    size: ['SMALL'],
-    stock: ['INSTOCK'],
+    variation: [{
+        size: 'small',
+        color:'multi',
+        quantity:6
+        },
+        {
+        size: 'medium',
+        color:'multi',
+        quantiy: 2
+        },
+        {
+        size:'large',
+        color:'multi',
+        quantity: 2
+        },
+        {
+        size: 'xlarge',
+        color:'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -126,8 +238,26 @@ const item7 = new Item({
     'This bodysuit can double as a bathing suit. ' +
     'Model is 5’6 wearing a Small',
     productPrice: '39.99',
-    size: ['MEDIUM'],
-    stock: ['INSTOCK'],
+    variation: [{
+        size: 'small',
+        color:'multi',
+        quantity:1
+        },
+        {
+        size: 'medium',
+        color:'multi',
+        quantity: 0
+        },
+        {
+        size:'large',
+        color:'multi',
+        quantity: 2
+        },
+        {
+        size: 'xlarge',
+        color:'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -138,9 +268,27 @@ const item8 = new Item({
     description: 'This dress can be worn on any occasion. ' +
     'Has a slouch neck with adjustable spaghetti straps.' +
     'Models is 5’6 wearing a small.',
-    productPrice: '49.99',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 40,
+    variation: [{
+        size: 'small',
+        color:'multi',
+        quantity:2
+        },
+        {
+        size: 'medium',
+        color:'multi',
+        quantiy: 2
+        },
+        {
+        size:'large',
+        color:'multi',
+        quantity: 1
+        },
+        {
+        size: 'xlarge',
+        color:'multi',
+        quantity: 0
+        }],
     imagePath:['r44yd.jpg', 'm00ghy.jpg']
 })
 
@@ -154,9 +302,27 @@ const item9 = new Item({
     'Skirt is heavy weight.' +
     'Has a slit that can be worn on your desired side.' +
     'Model is 5’7 wearing a size Medium.',
-    productPrice: '29.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 85,
+    variation: [{
+        size: 'small',
+        color:'multi',
+        quantity:2
+        },
+        {
+        size: 'medium',
+        color:'multi',
+        quantiy: 3
+        },
+        {
+        size:'large',
+        color:'multi',
+        quantity: 2
+        },
+        {
+        size: 'xlarge',
+        color:'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -170,9 +336,17 @@ const item10 = new Item({
     'Sides are cut out.' +
     'Skirt is floor length and has amazing stretch to fit your curves. ' +
     'Model is 5’7 wearing a size Medium.',
-    productPrice: '39.99',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 60,
+    variation: [{
+        size: 'sm',
+        color:'multi',
+        quantity:3
+        },
+        {
+        size: 'ml',
+        color:'multi',
+        quantiy: 4
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -186,9 +360,27 @@ const item11 = new Item({
     'Pants are made to fit oversized, has pockets on both legs. ' +
     'These pants are ankle length on women 5’7-5”9. ' +
     'Model is 5’7',
-    productPrice: '45.99',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 100,
+    variation: [{
+        size: 'os',
+        color:'blue',
+        quantity:2
+        },
+        {
+        size: 'os',
+        color:'white',
+        quantiy: 2
+        },
+        {
+        size:'os',
+        color:'taupe',
+        quantity: 3
+        },
+        {
+        size: 'os',
+        color:'olive',
+        quantity: 3
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -200,9 +392,15 @@ const item12 = new Item({
     'Dress stretches to fit your body.  ' +
     'Has scrunched sides.' +
     'Model is 5’4 wearing a size Medium.',
-    productPrice: '29.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 60,
+    variation: [{
+        size: 'sm',
+        quantity:1
+        },
+        {
+        size: 'ml',
+        quantiy: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -215,10 +413,47 @@ const item13 = new Item({
     'This item runs small. I suggest you go up a size' +
     'Model in brown is 5’4 wearing a Small. ' +
     'Model is green is 5’0 wearing a Small. ',
-    productPrice: '15.99',
-    size: ['LARGE'],
-    color:[{name:'green'},{name:'brown'}],
-    stock: ['INSTOCK'],
+    productPrice: 40,
+    variation: [{
+        size: 'small',
+        color: 'green',
+        quantity:8
+        },
+        {
+        size: 'medium',
+        color: 'green',
+        quantiy: 9
+        },
+        {
+        size:'large',
+        color: 'green',
+        quantity: 9
+        },
+        {
+        size: 'xlarge',
+        color: 'green',
+        quantity: 0
+        },
+        {
+        size: 'small',
+        color: 'brown',
+        quantity:9
+        },
+        {
+        size: 'medium',
+        color: 'brown',
+        quantiy: 9
+        },
+        {
+        size:'large',
+        color: 'brown',
+        quantity: 8
+        },
+        {
+        size: 'xlarge',
+        color:'brown',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -228,9 +463,27 @@ const item14 = new Item({
     productName: 'Alex Denim Shorts',
     description: 'Shorts are mid waist and have a slight stretch.' +
     'Model is 5’5 wearing a Large. ',
-    productPrice: '25.99',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 35,
+    variation: [{
+        size: 'small',
+        color:'multi',
+        quantity:6
+        },
+        {
+        size: 'medium',
+        color:'multi',
+        quantiy: 5
+        },
+        {
+        size:'large',
+        color:'multi',
+        quantity: 4
+        },
+        {
+        size: 'xlarge',
+        color:'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -240,9 +493,48 @@ const item15 = new Item({
     productName: 'Dria Shirt',
     description: 'Shirt has wide sleeves with a rope belt at the bottom.' +
     'Model is 5’5 wearing a Medium.  ' ,
-    productPrice: '19.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 30,
+    variation: [{
+        size: 'small',
+        color:'white',
+        quantity:6
+        },
+        {
+        size: 'medium',
+        color:'white',
+        quantiy: 4
+        },
+        {
+        size:'large',
+        color:'white',
+        quantity: 5
+        },
+        {
+        size: 'xlarge',
+        color:'white',
+        quantity: 0
+        },
+     {
+            size: 'small',
+            color:'taupe',
+            quantity:6
+            },
+            {
+            size: 'medium',
+            color:'taupe',
+            quantiy: 5
+            },
+            {
+            size:'large',
+            color:'taupe',
+            quantity: 5
+            },
+            {
+            size: 'xlarge',
+            color:'taupe',
+            quantity: 0
+
+    }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -254,9 +546,27 @@ const item16 = new Item({
     'Slightly oversized with detachable belt. ' +
     'Has scrunched sides.' +
     'Model is 5’5 wearing a size Medium.',
-    productPrice: '49.99',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 55,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:1
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 1
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 0
+        },
+        {
+        size: 'xlarge',
+        color: 'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -268,9 +578,27 @@ const item17 = new Item({
     'Get your normal size for the oversized look.   ' +
     'Details on this jacket are silver. ' +
     'Model is 5’5 wearing a Small.',
-    productPrice: '20.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 45,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:2
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 1
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 1
+        },
+        {
+        size: 'xlarge',
+        color: 'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -281,9 +609,27 @@ const item18 = new Item({
     description: 'This is an oversized denim crop jacket. ' +
     'Get your normal size for the oversized look.   ' +
     'Model is 5’2 wearing a Medium.',
-    productPrice: '35.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 45,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:2
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 1
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 2
+        },
+        {
+        size: 'xlarge',
+        color: 'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -295,9 +641,27 @@ const item19 = new Item({
     'They have a scrunch waist and have great stretch. ' +
     'They come mid-waist. ' +
     'Model is 5’2 wearing a Large.',
-    productPrice: '22.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 35,
+    variation: [{
+        size: 'small',
+        color: 'multi',
+        quantity:6
+        },
+        {
+        size: 'medium',
+        color: 'multi',
+        quantiy: 2
+        },
+        {
+        size:'large',
+        color: 'multi',
+        quantity: 2
+        },
+        {
+        size: 'xlarge',
+        color: 'multi',
+        quantity: 0
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -308,9 +672,17 @@ const item20 = new Item({
     description: 'This dress fits oversized.' +
     'Has a draw string bottom so you can tighten it to your liking. ' +
     'This dress has pockets on both sides. ',
-    productPrice: '22.95',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 45,
+    variation: [{
+        size: 'sm',
+        color: 'multi',
+        quantity:2
+        },
+        {
+        size: 'ml',
+        color: 'multi',
+        quantiy: 2
+        }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -322,9 +694,67 @@ const item21 = new Item({
     'Amazing stretch.' +
     'True To Size. ' +
     'Model is 5’4 wearing a Small.',
-    productPrice: '39.99',
-    size: ['LARGE'],
-    stock: ['INSTOCK'],
+    productPrice: 25,
+    variation: [{
+        size: 'small',
+        color: 'white',
+        quantity:9
+        },
+        {
+        size: 'medium',
+        color: 'white',
+        quantiy: 8
+        },
+        {
+        size:'large',
+        color: 'white',
+        quantity: 4
+        },
+        {
+        size: 'xlarge',
+        color: 'white',
+        quantity: 5
+        },
+        {
+            size: 'small',
+            color: 'black',
+            quantity:7
+            },
+            {
+            size: 'medium',
+            color: 'black',
+            quantiy: 8
+            },
+            {
+            size:'large',
+            color: 'black',
+            quantity: 4
+            },
+            {
+            size: 'xlarge',
+            color: 'black',
+            quantity: 5
+            },
+            {
+                size: 'small',
+                color: 'heather',
+                quantity:9
+                },
+                {
+                size: 'medium',
+                color: 'heather',
+                quantiy: 9
+                },
+                {
+                size:'large',
+                color: 'heather',
+                quantity: 6
+                },
+                {
+                size: 'xlarge',
+                color: 'heather',
+                quantity: 6
+                }],
     imagePath:['4hyd.jpg', 'gte290.jpg']
 })
 
@@ -333,7 +763,9 @@ const item21 = new Item({
 const category1 = new Category({
     _id: new mongoose.Types.ObjectId(),
     categoryName: 'New Arrivals',
-    items: []
+    items: [item19, item18, item17, item16, item15, item14, item13,
+        item12, item11, item10, item9, item8, item7, item6, item5, 
+        item4, item3, item2, item1]
 })
 
 const category2 = new Category({

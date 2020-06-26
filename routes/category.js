@@ -34,9 +34,10 @@ router.get('/category/:categoryName/:productSKU', function(req, res, next){
 
 
 //update cart with added item
-router.get('/category/:categoryName/:productSKU/add', function(req, res, next){
+router.get('/category/:categoryName/:productSKU/size/:size/add', function(req, res, next){
     var cart = new Cart(req.session.cart ? req.session.cart : {} );
-    const size = req.params.size;
+    var color = req.body.color;
+    var size = req.params.size;
     var id  = req.params.productSKU;
 
     Item.findOne({productSKU: id}, function(error, item){
@@ -44,12 +45,14 @@ router.get('/category/:categoryName/:productSKU/add', function(req, res, next){
         if (error){
             return res.status(404).json('OOPS, SOMETHING WENT WRONG HONEY..');
         }
-
+        if((item.variation.size = size) && (item.variation.color = color)){
         cart.add(item, item.id);
+    }
         req.session.cart = cart;
         //testing purposes
         console.log(req.session.cart);
         res.status(200).json(req.session.cart);
+        
     });
 });
     

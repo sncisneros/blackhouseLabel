@@ -37,10 +37,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers",
-  "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-  res.header("Acces-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
   
   if(req.method === 'OPTIONS'){
     res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
@@ -49,17 +48,27 @@ app.use((req, res, next) => {
   next();
 })
 
+// app.use(session({
+//   secret: 'issasecretokr',
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: false },
+//   store: new MongoStore({ mongooseConnection: mongoose.connection}),
+//   cookie: {maxAge: 180 * 60 * 1000}
+// }));
+
 app.use(session({
-  secret: 'issasecretokr',
-  resave: false,
+  secret: 'mysecret',
   saveUninitialized: true,
-  cookie: { secure: false },
-  store: new MongoStore({ mongooseConnection: mongoose.connection}),
-  cookie: {maxAge: 180 * 60 * 1000}
+  resave: true,
+  cookie: { secure: false},
+  store: new MongoStore({ mongooseConnection: mongoose.connection})
 }));
+
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors());
+app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
+// app.use(cors());
 app.use(bodyParser.json());
 
 app.use('/', indexRouter);

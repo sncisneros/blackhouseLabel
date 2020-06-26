@@ -7,6 +7,12 @@ var nodemailer = require('nodemailer');
 const Cart = require('../models/cart');
 const Order = require('../models/order');
 
+// for debugging
+router.get('/getsession', function(req, res) {
+  console.log(`Session ID: ${req.session.id}`);
+  res.status(200).json({ sessionid: req.session.id });
+});
+
 //GET request for ALL items
   router.get('/my-cart', (req, res, next) => {
     console.log(req.session);

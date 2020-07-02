@@ -19,8 +19,7 @@ var usersRouter = require('./routes/users');
 var categoryRouter = require('./routes/category');
 var cartsRouter = require('./routes/carts');
 var homeRouter = require('./routes/home');
-var adminRouter = require('./routes/admin');
-var loginRouter = require('./routes/login');
+var compression = require('compression');
 
 var app = express();
 
@@ -72,14 +71,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 // app.use(cors());
 app.use(bodyParser.json());
+app.use(compression());
 
 app.use('/', indexRouter);
 app.use('/api', usersRouter);
 app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
-app.use('/api', adminRouter);
-app.use('/api', loginRouter);
 
 //to access session in all templates
 app.use(function(req, res, next){

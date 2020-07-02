@@ -34,10 +34,10 @@ router.get('/category/:categoryName/:productSKU', function(req, res, next){
 
 
 //update cart with added item
-router.get('/category/:categoryName/:productSKU/size/:size/add', function(req, res, next){
+router.post('/category/:categoryName/:productSKU/add', function(req, res, next){
     var cart = new Cart(req.session.cart ? req.session.cart : {} );
     var color = req.body.color;
-    var size = req.params.size;
+    var size = req.body.size;
     var id  = req.params.productSKU;
 
     Item.findOne({productSKU: id}, function(error, item){
@@ -47,6 +47,8 @@ router.get('/category/:categoryName/:productSKU/size/:size/add', function(req, r
         }
         if((item.variation.size = size) && (item.variation.color = color)){
         cart.add(item, item.id);
+    }else{
+        return res.status(404).json('Unable to add Item, not in stock');
     }
         req.session.cart = cart;
         //testing purposes

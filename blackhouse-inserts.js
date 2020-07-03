@@ -2,6 +2,7 @@
 
 'use strict';
 const mongoose = require('mongoose');
+const connectionString='mongodb+srv://ronnesha:MsBlack@blackhouse.k2l6i.mongodb.net/blackhouse?retryWrites=true&w=majority';
 const Item = require('./models/item');
 const Category = require('./models/category');
 const Order = require('./models/order');
@@ -13,12 +14,12 @@ const item1 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1001,
     productName: 'Kayla Tie-Dye Two Piece Set',
-    description: 'Comes with a bodysuit and a midi skirt.' + 
+    description: 'Comes with a bodysuit and a midi skirt. ' + 
     'Has pops of purple, orange, lime green, burgundy and pink. '+
     'Skirt can be worn high waisted. '+
-    'Skirt and Top are slightly see through and made of a mesh material' +
-    'Skirt has an elastic band to provide stretch' +
-    'Model is 5’0 wearing a Small' +
+    'Skirt and Top are slightly see through and made of a mesh material. ' +
+    'Skirt has an elastic band to provide stretch. ' +
+    'Model is 5’0 wearing a Small. ' +
     'Comes in color Multi',
     productPrice: 45.00,
     variation: [{
@@ -44,13 +45,13 @@ const item2 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1002,
     productName: 'Sage Two-Piece Pants Set',
-    description: 'This two-piece set is versatile in style.' + 
-   'Top can be tied to your liking.'+ 
-    'Pants are high waisted with a slighted belled bottom.' + 
-   'Has Pockets.' +
+    description: 'This two-piece set is versatile in style. ' + 
+   'Top can be tied to your liking. '+ 
+    'Pants are high waisted with a slighted belled bottom. ' + 
+   'Has Pockets. ' +
     'Pants are long and are tall girl friendly. ' +
-    'Has an elastic band to provide a stretch.' +
-    'Model is 5’0 wearing a Small' +
+    'Has an elastic band to provide a stretch. ' +
+    'Model is 5’0 wearing a Small. ' +
     'Comes in color Sage',
     productPrice: 50.00,
     variation: [{
@@ -73,17 +74,17 @@ const item2 = new Item({
         color: 'sage',
         quantity: 2
         }],
-    imagePath: ['/assets/images/img/Model1/ff-05.jpg']
+    imagePath: ['/assets/images/img/Model1/ff-05.jpg', '/assets/images/img/Model1/ff-03.jpg', '/assets/images/img/Model1/ff-04.jpg', '/assets/images/img/Model1/ff-07.jpg']
 })
 
 const item3 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1003,
     productName: 'Off The Chains Blazer',
-    description: 'a statement piece that every woman needs.' +
+    description: 'a statement piece that every woman needs. ' +
     'Blazer comes down at a V angle in the front. ' +
-    'Chains hanging are gold and can easily hang below ' +
-    'Model is 5’0 wearing a Small' +
+    'Chains hanging are gold and can easily hang below. ' +
+    'Model is 5’0 wearing a Small. ' +
     'Comes in color Black',
     productPrice: 85.00,
     variation: [{
@@ -106,18 +107,18 @@ const item3 = new Item({
         color: 'black',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model1/ff-09.jpg']
+    imagePath:['/assets/images/img/Model1/ff-09.jpg', '/assets/images/img/Model1/ff-08.jpg']
 })
 
 const item4 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1004,
     productName: 'Destroyed Denim Jeans',
-    description: 'These Jeans come in a light and medium wash.' +
-    'They have rips on the front and back side stopping just underneath the butt.' +
-    'Denim is of a thick material but has a slight stretch.' +
-    'These pants come mid to high waist depending on torso length.' +
-    'Model is 5’6 wearing Small'+
+    description: 'These Jeans come in a light and medium wash. ' +
+    'They have rips on the front and back side stopping just underneath the butt. ' +
+    'Denim is of a thick material but has a slight stretch. ' +
+    'These pants come mid to high waist depending on torso length. ' +
+    'Model is 5’6 wearing Small. '+
     'Comes is Medium and Light',
     productPrice: 55.00,
     variation: [{
@@ -166,10 +167,10 @@ const item5 = new Item({
     productSKU: 1005,
     productName: 'Essential Racer Back Dress',
     description: 'This is your everyday go to dress. ' +
-    'Has a very stretchy material to fit all body types.' +
-    'Model is 5’6 wearing a S/M' +
-    'Comes in color White' +
-    'Please choose small for SM, and large for ML sizes',
+    'Has a very stretchy material to fit all body types. ' +
+    'Model is 5’6 wearing a S/M. ' +
+    'Comes in color White. ' +
+    'Please choose small for SM, and large for ML sizes. ',
     productPrice: 25.00,
     variation: [{
         size: 'sm',
@@ -181,18 +182,18 @@ const item5 = new Item({
         color:'white',
         quantiy: 5
         }],
-    imagePath:['/assets/images/img/Model2/ff-4.jpg']
+    imagePath:['/assets/images/img/Model2/ff-4.jpg', '/assets/images/img/Model2/ff-3.jpg']
 })
 
 const item6 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1006,
     productName: 'Jazzmine Denim Jacket',
-    description: 'Light Wash' +
+    description: 'Light Wash. ' +
     'Fits oversized. ' +
-    'Fringed at the bottom.' +
-    'Has Faux pockets' +
-    'Model is 5’6 wearing a Small' +
+    'Fringed at the bottom. ' +
+    'Has Faux pockets. ' +
+    'Model is 5’6 wearing a Small. ' +
     'Comes in color Denim',
     productPrice: 45.00,
     variation: [{
@@ -215,19 +216,19 @@ const item6 = new Item({
         color:'denim',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model2/ff-3.jpg']
+    imagePath:['/assets/images/img/Model2/ff-3.jpg', '/assets/images/img/Model2/ff-4.jpg']
 })
 
 const item7 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1007,
     productName: 'Colorful Bandeau Bodysuit',
-    description: 'Is your summertime go to!' +
-    'Comprised of multiple colors including yellow, blue, orange, black, and green.' +
+    description: 'Is your summertime go to! ' +
+    'Comprised of multiple colors including yellow, blue, orange, black, and green. ' +
     'Bow can be tied to the front or back. ' +
-    'Has an amazing stretch.' +
+    'Has an amazing stretch. ' +
     'This bodysuit can double as a bathing suit. ' +
-    'Model is 5’6 wearing a Small' +
+    'Model is 5’6 wearing a Small. ' +
     'Comes in color Multi',
     productPrice: 35.00,
     variation: [{
@@ -250,7 +251,7 @@ const item7 = new Item({
         color:'multi',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model2/ff-5.jpg']
+    imagePath:['/assets/images/img/Model2/ff-5.jpg', '/assets/images/img/Model2/ff-7.jpg']
 })
 
 const item8 = new Item({
@@ -258,8 +259,8 @@ const item8 = new Item({
     productSKU: 1008,
     productName: 'Silky Pink Dress',
     description: 'This dress can be worn on any occasion. ' +
-    'Has a slouch neck with adjustable spaghetti straps.' +
-    'Models is 5’6 wearing a small.'+
+    'Has a slouch neck with adjustable spaghetti straps. ' +
+    'Models is 5’6 wearing a small. '+
     'Comes in color Pink',
     productPrice: 40.00,
     variation: [{
@@ -289,12 +290,12 @@ const item9 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1009,
     productName: 'Diamond Diva Skirt',
-    description: 'This Skirt will have you turning heads!' +
-    'Can be worn as a bathing suit cover up… or NOT!' +
+    description: 'This Skirt will have you turning heads! ' +
+    'Can be worn as a bathing suit cover up… or NOT! ' +
     'Skirt has an elastic band and has rhinestones throughout. ' +
-    'Skirt is heavy weight.' +
-    'Has a slit that can be worn on your desired side.' +
-    'Model is 5’7 wearing a size Medium.' +
+    'Skirt is heavy weight. ' +
+    'Has a slit that can be worn on your desired side. ' +
+    'Model is 5’7 wearing a size Medium. ' +
     'Comes in color Black',
     productPrice: 85.00,
     variation: [{
@@ -317,20 +318,20 @@ const item9 = new Item({
         color:'black',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model3/ff-07.jpg']
+    imagePath:['/assets/images/img/Model3/ff-07.jpg', '/assets/images/img/Model3/ff-01.jpg', '/assets/images/img/Model3/ff-09.jpg']
 })
 
 const item10 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1010,
     productName: 'Tealy Bluewash Set',
-    description: 'Perfect Beach Vacation Outfit' +
+    description: 'Perfect Beach Vacation Outfit. ' +
     'Has a long-sleeved bandeau top that can be tied at the middle. ' +
-    'Sleeves are oversized for a loose fit.' +
-    'Sides are cut out.' +
+    'Sleeves are oversized for a loose fit. ' +
+    'Sides are cut out. ' +
     'Skirt is floor length and has amazing stretch to fit your curves. ' +
-    'Model is 5’7 wearing a size Medium.' +
-    'Comes in color Blue' +
+    'Model is 5’7 wearing a size Medium. ' +
+    'Comes in color Blue. ' +
     'Please choose small for SM, and Large for ML',
     productPrice: 60.00,
     variation: [{
@@ -343,24 +344,23 @@ const item10 = new Item({
         color:'blue',
         quantiy: 4
         }],
-    imagePath:['/assets/images/img/Model3/ff-06.jpg']
+    imagePath:['/assets/images/img/Model3/ff-06.jpg', '/assets/images/img/Model3/ff-02.jpg', '/assets/images/img/Model3/ff-03.jpg', '/assets/images/img/Model3/ff-08.jpg']
 })
 
 const item11 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1011,
     productName: 'The Shi Set',
-    description: 'It doesn’t matter where you’re going. You can go in this!!!' +
-    'ONE SIZE FITS ALL' +
+    description: 'It doesn’t matter where you’re going. You can go in this!!! ' +
+    'ONE SIZE FITS ALL ' +
     'This two-piece is made of a very lightweight cotton material. ' +
     'Pants are made to fit oversized, has pockets on both legs. ' +
     'These pants are ankle length on women 5’7-5”9. ' +
-    'Model is 5’7' +
-    'Comes in Blue, White, Taupe, or Olive' + 
+    'Model is 5’7. ' +
+    'Comes in Blue, White, Taupe, or Olive. ' + 
     'Please choose OS',
     productPrice: 100.00,
-    variation: [{
-        size: 'os',
+    variation: [{ size: 'os',
         color:'blue',
         quantity:2
         },
@@ -379,18 +379,18 @@ const item11 = new Item({
         color:'olive',
         quantity: 3
         }],
-    imagePath:['/assets/images/img/Model3/ff-05.jpg']
+    imagePath:['/assets/images/img/Model3/ff-05.jpg', '/assets/images/img/Model3/ff-10.jpg']
 })
 
 const item12 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1012,
     productName: 'The Nyah Dress',
-    description: 'This dress is perfect for when you want to be simple, yet classy, yet SEXY!' +
+    description: 'This dress is perfect for when you want to be simple, yet classy, yet SEXY! ' +
     'Dress stretches to fit your body.  ' +
-    'Has scrunched sides.' +
-    'Model is 5’4 wearing a size Medium.' +
-    'Comes in color White' +
+    'Has scrunched sides. ' +
+    'Model is 5’4 wearing a size Medium. ' +
+    'Comes in color White. ' +
     'Please choose small for SM, and Large for ML',
     productPrice: 60.00,
     variation: [{
@@ -412,7 +412,7 @@ const item13 = new Item({
     productName: 'Earth Bound Bodysuit',
     description: 'Made of a slightly thick cotton material. ' +
     'Has padded bra. ' +
-    'This item runs small. I suggest you go up a size' +
+    'This item runs small. I suggest you go up a size. ' +
     'Model in brown is 5’4 wearing a Small. ' +
     'Model is green is 5’0 wearing a Small. ' +
     'Comes in color Green or Brown',
@@ -457,14 +457,14 @@ const item13 = new Item({
         color:'brown',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model1_4/ff-2.jpg']
+    imagePath:['/assets/images/img/Model1_4/ff-2.jpg', '/assets/images/img/Model1_4/ff-1.jpg', '/assets/images/img/Model1_4/ff-3.jpg']
 })
 
 const item14 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1014,
     productName: 'Alex Denim Shorts',
-    description: 'Shorts are mid waist and have a slight stretch.' +
+    description: 'Shorts are mid waist and have a slight stretch. ' +
     'Model is 5’5 wearing a Large. ' +
     ' Comes in color Denim',
     productPrice: 35.00,
@@ -488,16 +488,16 @@ const item14 = new Item({
         color:'denim',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model5/ff-04.jpg']
+    imagePath:['/assets/images/img/Model5/ff-04.jpg','/assets/images/img/Model5/ff-01.jpg']
 })
 
 const item15 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1015,
     productName: 'Dria Shirt',
-    description: 'Shirt has wide sleeves with a rope belt at the bottom.' +
+    description: 'Shirt has wide sleeves with a rope belt at the bottom. ' +
     'Model is 5’5 wearing a Medium.  ' + 
-    'Comes in colors White or Taupe',
+    'Comes in colors White or Taupe ',
     productPrice: 30.00,
     variation: [{
         size: 'small',
@@ -540,7 +540,7 @@ const item15 = new Item({
             quantity: 0
 
     }],
-    imagePath:['/assets/images/img/Model5/ff-03.jpg']
+    imagePath:['/assets/images/img/Model5/ff-03.jpg', '/assets/images/img/Model5/ff-02.jpg']
 })
 
 const item16 = new Item({
@@ -549,8 +549,8 @@ const item16 = new Item({
     productName: 'Bleu Belted Dress',
     description: 'Light Denim Wash' +
     'Slightly oversized with detachable belt. ' +
-    'Has scrunched sides.' +
-    'Model is 5’5 wearing a size Medium.' +
+    'Has scrunched sides. ' +
+    'Model is 5’5 wearing a size Medium. ' +
     'Comes in color Blue',
     productPrice: 55.00,
     variation: [{
@@ -573,17 +573,17 @@ const item16 = new Item({
         color: 'blue',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model5/ff-09.jpg']
+    imagePath:['/assets/images/img/Model5/ff-09.jpg', '/assets/images/img/Model5/ff-05.jpg', '/assets/images/img/Model5/ff-06.jpg']
 })
 
 const item17 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1017,
     productName: 'Olive Denim Jacket',
-    description: 'This is an oversized crop jacket.' +
-    'Get your normal size for the oversized look.   ' +
+    description: 'This is an oversized crop jacket. ' +
+    'Get your normal size for the oversized look. ' +
     'Details on this jacket are silver. ' +
-    'Model is 5’5 wearing a Small.' +
+    'Model is 5’5 wearing a Small. ' +
     'Comes in color Olive',
     productPrice: 45.00,
     variation: [{
@@ -606,7 +606,7 @@ const item17 = new Item({
         color: 'olive',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model5/ff-07.jpg']
+    imagePath:['/assets/images/img/Model5/ff-07.jpg', '/assets/images/img/Model5/ff-08.jpg', '/assets/images/img/Model5/ff-10.jpg']
 })
 
 const item18 = new Item({
@@ -614,8 +614,8 @@ const item18 = new Item({
     productSKU: 1018,
     productName: 'Shaniya Crop Jacket',
     description: 'This is an oversized denim crop jacket. ' +
-    'Get your normal size for the oversized look.   ' +
-    'Model is 5’2 wearing a Medium.' +
+    'Get your normal size for the oversized look. ' +
+    'Model is 5’2 wearing a Medium. ' +
     'Comes in color Denim',
     productPrice: 45.00,
     variation: [{
@@ -638,7 +638,7 @@ const item18 = new Item({
         color: 'denim',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model6/ff-3.jpg']
+    imagePath:['/assets/images/img/Model6/ff-3.jpg', '/assets/images/img/Model6/ff-1.jpg', '/assets/images/img/Model6/ff-2.jpg']
 })
 
 const item19 = new Item({
@@ -648,7 +648,7 @@ const item19 = new Item({
     description: 'These shorts are slightly longer in the back than the front. ' +
     'They have a scrunch waist and have great stretch. ' +
     'They come mid-waist. ' +
-    'Model is 5’2 wearing a Large.' +
+    'Model is 5’2 wearing a Large. ' +
     'Comes in color Denim',
     productPrice: 35.00,
     variation: [{
@@ -671,18 +671,18 @@ const item19 = new Item({
         color: 'denim',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model6/ff-5.jpg']
+    imagePath:['/assets/images/img/Model6/ff-5.jpg', '/assets/images/img/Model6/ff-6.jpg']
 })
 
 const item20 = new Item({
     _id: new mongoose.Types.ObjectId(),
     productSKU: 1020,
     productName: 'Liyah OverSized Tunic',
-    description: 'This dress fits oversized.' +
+    description: 'This dress fits oversized. ' +
     'Has a draw string bottom so you can tighten it to your liking. ' +
     'This dress has pockets on both sides. ' +
-    'Comes in color Lavender' +
-    'Please choose small for SM, and large for ML sizes.',
+    'Comes in color Lavender. ' +
+    'Please choose small for SM, and large for ML sizes. ',
     productPrice: 45.00,
     variation: [{
         size: 'small',
@@ -694,7 +694,7 @@ const item20 = new Item({
         color: 'lavender',
         quantiy: 2
         }],
-    imagePath:['/assets/images/img/Model6/ff-4.jpg']
+    imagePath:['/assets/images/img/Model6/ff-4.jpg', '/assets/images/img/Model6/ff-7.jpg']
 })
 
 const item21 = new Item({
@@ -702,10 +702,10 @@ const item21 = new Item({
     productSKU: 1021,
     productName: 'Essential Bodysuit',
     description: 'Has thick straps. ' +
-    'Amazing stretch.' +
+    'Amazing stretch. ' +
     'True To Size. ' +
-    'Model is 5’4 wearing a Small.' +
-    'Comes in colors White, Black, Heather, Sage, Light Mocha and Ash Blue',
+    'Model is 5’4 wearing a Small. ' +
+    'Comes in colors White, Black, Heather, Sage, Light Mocha and Ash Blue. ',
     productPrice: 25.00,
     variation: [{
         size: 'small',
@@ -827,22 +827,15 @@ const item21 = new Item({
         color: 'ash blue',
         quantity: 4
         }],     
-    imagePath:['/assets/images/img/Model4/ff-05.jpg']
+    imagePath:['/assets/images/img/Model4/ff-04.jpg', '/assets/images/img/Model4/ff-05.jpg', '/assets/images/img/Model4/ff-06.jpg', '/assets/images/img/Model4/ff-07.jpg', '/assets/images/img/Model4/ff-08.jpg', '/assets/images/img/Model4/ff-09.jpg', '/assets/images/img/Model4/ff-11.jpg']
 })
 
 
 //categories
-const category7 = new Category({
-    _id: new mongoose.Types.ObjectId(),
-    categoryName: 'Active',
-    items: [ item2, item1],
-    imagePath: '/assets/images/bottoms.PNG'
-})
-
 const category1 = new Category({
     _id: new mongoose.Types.ObjectId(),
     categoryName: 'Bottoms',
-    items: [item19, item14, item11, item10, item9, item4, item2, item1],
+    items: [item19, item14, item9, item4],
     imagePath: '/assets/images/bottoms.PNG'
 })
 
@@ -885,7 +878,7 @@ const category6 = new Category({
 
 
 async function run() {
-    await mongoose.connect('mongodb://localhost/blackhouse');
+    await mongoose.connect(connectionString);
     // clearing our collections
     await Category.remove();
     await Item.remove();
@@ -918,8 +911,6 @@ async function run() {
     await category4.save();
     await category5.save();
     await category6.save();
-    await category7.save();
-    //await discount1.save();
 
     await mongoose.disconnect();
   }

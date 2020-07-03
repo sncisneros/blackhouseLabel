@@ -10,6 +10,7 @@ var MongoStore = require('connect-mongo')(session);
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var env = require('dotenv').config();
+const connectionString='mongodb+srv://ronnesha:MsBlack@blackhouse.k2l6i.mongodb.net/blackhouse?retryWrites=true&w=majority';
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
 
@@ -23,14 +24,13 @@ var compression = require('compression');
 
 var app = express();
 
+
 //mongoose connection
 mongoose.connection.on('connected', () => console.log('Mongoose connected.'));
 mongoose.connection.on('disconnected', () => console.log("Mongoose disconnected."));
-mongoose.connect(process.env.DBURL, {useNewUrlParser: true, useFindAndModify: false});
+mongoose.connect(connectionString, {useNewUrlParser: true, useFindAndModify: false});
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -49,14 +49,6 @@ app.use((req, res, next) => {
   next();
 })
 
-// app.use(session({
-//   secret: 'issasecretokr',
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: { secure: false },
-//   store: new MongoStore({ mongooseConnection: mongoose.connection}),
-//   cookie: {maxAge: 180 * 60 * 1000}
-// }));
 
 app.use(session({
   secret: 'mysecret',
@@ -73,11 +65,20 @@ app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 app.use(bodyParser.json());
 app.use(compression());
 
+app.use(express.static(__dirname + '/dist/blackhouse-label-client'));
+
+
 app.use('/', indexRouter);
 app.use('/api', usersRouter);
 app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
+
+
+app.get('*.*', express.static('dist/blackhouse-label-client', {maxAge: '1y'}));
+app.all('*', function (req, res) {
+  res.status(200).sendFile(`/`, {root: 'dist/blackhouse-label-client'});
+});
 
 //to access session in all templates
 app.use(function(req, res, next){

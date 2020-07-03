@@ -65,8 +65,9 @@ app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 app.use(bodyParser.json());
 app.use(compression());
 
-app.use(express.static(__dirname + '/dist/blackhouse-label-client'));
 
+app.use(express.static(__dirname + '/dist/blackhouse-label-client'));
+app.get('*.*', express.static('dist/blackhouse-label-client', {maxAge: '1y'}));
 
 app.use('/', indexRouter);
 app.use('/api', usersRouter);
@@ -74,11 +75,10 @@ app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
 
-
-app.get('*.*', express.static('dist/blackhouse-label-client', {maxAge: '1y'}));
 app.all('*', function (req, res) {
   res.status(200).sendFile(`/`, {root: 'dist/blackhouse-label-client'});
 });
+
 
 //to access session in all templates
 app.use(function(req, res, next){

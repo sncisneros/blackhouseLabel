@@ -814,6 +814,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           this.checkoutForm.reset();
           console.warn('Your order is now ready for payment', newOrder);
         }
+      }, {
+        key: "checkOut",
+        value: function checkOut() {
+          // alert
+          var confirmation = window.confirm('Confirm Cart');
+          if (confirmation) this.router.navigate(['/checkout']);
+        }
       }]);
 
       return CartComponent;
@@ -1195,7 +1202,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
           return this.http.get("".concat(_env_config__WEBPACK_IMPORTED_MODULE_2__["ENV"].BASE_API, "my-cart"), {
             withCredentials: true
           });
-        } // -----------------------------------------------
+        }
+      }, {
+        key: "updateCart",
+        value: function updateCart() {} // -----------------------------------------------
 
       }, {
         key: "onResults",
@@ -1616,7 +1626,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.item.description, " ");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.item == null ? null : ctx.item.description, " ");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 

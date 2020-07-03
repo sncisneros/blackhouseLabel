@@ -164,8 +164,7 @@ const routes = [];
 class AppRoutingModule {
 }
 AppRoutingModule.ɵmod = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineNgModule"]({ type: AppRoutingModule });
-AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)],
-        _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
+AppRoutingModule.ɵinj = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjector"]({ factory: function AppRoutingModule_Factory(t) { return new (t || AppRoutingModule)(); }, imports: [[_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"].forRoot(routes)], _angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] });
 (function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](AppRoutingModule, { imports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]], exports: [_angular_router__WEBPACK_IMPORTED_MODULE_1__["RouterModule"]] }); })();
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](AppRoutingModule, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
@@ -442,6 +441,12 @@ class CartComponent {
         this.checkoutForm.reset();
         console.warn('Your order is now ready for payment', newOrder);
     }
+    checkOut() {
+        // alert
+        let confirmation = window.confirm('Confirm Cart');
+        if (confirmation)
+            this.router.navigate(['/checkout']);
+    }
 }
 CartComponent.ɵfac = function CartComponent_Factory(t) { return new (t || CartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_data_service__WEBPACK_IMPORTED_MODULE_2__["DataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormBuilder"])); };
 CartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: CartComponent, selectors: [["app-cart"]], inputs: { cart: "cart" }, decls: 19, vars: 0, consts: [[1, "bg"], [1, "container"], [1, "cart", 2, "background-color", "transparent"], [1, "snipcart-summary"], [1, "snipcart-total-items"], [1, "snipcart-total-price"], [1, "snipcart-checkout", "btn", "btn-outline-success"]], template: function CartComponent_Template(rf, ctx) { if (rf & 1) {
@@ -619,6 +624,8 @@ class DataService {
     getCart() {
         return this.http
             .get(`${_env_config__WEBPACK_IMPORTED_MODULE_2__["ENV"].BASE_API}my-cart`, { withCredentials: true });
+    }
+    updateCart() {
     }
     // -----------------------------------------------
     onResults() {
@@ -831,7 +838,7 @@ ItemDetailsComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx.item.imagePath);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.item.description, " ");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx.item == null ? null : ctx.item.description, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵattribute"]("data-item-id", ctx.item.productSKU)("data-item-price", ctx.item.productPrice)("data-item-name", ctx.item.productName);
     } }, directives: [_angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCard"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardHeader"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardTitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardSubtitle"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardContent"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_material_card__WEBPACK_IMPORTED_MODULE_3__["MatCardActions"]], pipes: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["CurrencyPipe"]], styles: [".item-details[_ngcontent-%COMP%]{\r\n    text-align: center;\r\n}\r\n\r\n.thumbnails[_ngcontent-%COMP%]{\r\nfloat: right;\r\nborder-radius: 2px;\r\nborder-color: darkolivegreen;\r\n}\r\n\r\nmat-card[_ngcontent-%COMP%]{\r\n    max-width:50%;\r\n    background-color: transparent;\r\n}\r\n\r\nmat-card-content[_ngcontent-%COMP%]{\r\n    font-size: 15px;\r\n    color: white;\r\n}\r\n\r\nmat-card-subtitle[_ngcontent-%COMP%]{\r\n    color: darkolivegreen;\r\n}\r\n\r\nmat-card-title[_ngcontent-%COMP%]{\r\n    color: white;\r\n}\r\n\r\n.container[_ngcontent-%COMP%]{\r\n    justify-content: center;\r\n    font-family: \"Montserrat\", sans-serif;\r\n    display: flex;\r\n    padding-top: 5%;\r\n    padding-bottom: 10%;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaXRlbS1kZXRhaWxzL2l0ZW0tZGV0YWlscy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksa0JBQWtCO0FBQ3RCOztBQUVBO0FBQ0EsWUFBWTtBQUNaLGtCQUFrQjtBQUNsQiw0QkFBNEI7QUFDNUI7O0FBRUE7SUFDSSxhQUFhO0lBQ2IsNkJBQTZCO0FBQ2pDOztBQUVBO0lBQ0ksZUFBZTtJQUNmLFlBQVk7QUFDaEI7O0FBRUE7SUFDSSxxQkFBcUI7QUFDekI7O0FBRUE7SUFDSSxZQUFZO0FBQ2hCOztBQUVBO0lBQ0ksdUJBQXVCO0lBQ3ZCLHFDQUFxQztJQUNyQyxhQUFhO0lBQ2IsZUFBZTtJQUNmLG1CQUFtQjtBQUN2QiIsImZpbGUiOiJzcmMvYXBwL2l0ZW0tZGV0YWlscy9pdGVtLWRldGFpbHMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5pdGVtLWRldGFpbHN7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcbi50aHVtYm5haWxze1xyXG5mbG9hdDogcmlnaHQ7XHJcbmJvcmRlci1yYWRpdXM6IDJweDtcclxuYm9yZGVyLWNvbG9yOiBkYXJrb2xpdmVncmVlbjtcclxufVxyXG5cclxubWF0LWNhcmR7XHJcbiAgICBtYXgtd2lkdGg6NTAlO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7XHJcbn1cclxuXHJcbm1hdC1jYXJkLWNvbnRlbnR7XHJcbiAgICBmb250LXNpemU6IDE1cHg7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbn1cclxuXHJcbm1hdC1jYXJkLXN1YnRpdGxle1xyXG4gICAgY29sb3I6IGRhcmtvbGl2ZWdyZWVuO1xyXG59XHJcblxyXG5tYXQtY2FyZC10aXRsZXtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxufVxyXG5cclxuLmNvbnRhaW5lcntcclxuICAgIGp1c3RpZnktY29udGVudDogY2VudGVyO1xyXG4gICAgZm9udC1mYW1pbHk6IFwiTW9udHNlcnJhdFwiLCBzYW5zLXNlcmlmO1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIHBhZGRpbmctdG9wOiA1JTtcclxuICAgIHBhZGRpbmctYm90dG9tOiAxMCU7XHJcbn0iXX0= */"] });

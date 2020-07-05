@@ -13,6 +13,7 @@ var env = require('dotenv').config();
 const connectionString='mongodb+srv://ronnesha:MsBlack@blackhouse.k2l6i.mongodb.net/blackhouse?retryWrites=true&w=majority';
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
 const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
+var port = 8080;
 
 
 var indexRouter = require('./routes/index');
@@ -38,7 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   res.header("Access-Control-Allow-Credentials", "true");
   
@@ -58,16 +59,20 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: mongoose.connection})
 }));
 
+// 
+
 app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
+// app.use(cors({credentials: true, origin: 'http://localhost:4200'}));
 // app.use(cors());
 app.use(bodyParser.json());
 app.use(compression());
 
-app.use(express.static(__dirname + '/dist/blackhouse-label-client'));
+//app.use(express.static(__dirname + '/dist/blackhouse-label-client'));
 
+app.use(express.static(path.join(__dirname, '/dist/blackhouse-label-client')))
 app.get('*.*', express.static('dist/blackhouse-label-client'));
+
 
 
 app.use('/', indexRouter);
@@ -75,10 +80,10 @@ app.use('/api', usersRouter);
 app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
-
 app.get('*', function (req, res) {
   res.status(200).sendFile(`/`, {root: 'dist/blackhouse-label-client'});
 });
+
 
 
 //to access session in all templates
@@ -104,5 +109,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+app.listen(port);
 module.exports = app;
-dentials: true

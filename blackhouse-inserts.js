@@ -457,7 +457,7 @@ const item13 = new Item({
         color:'brown',
         quantity: 0
         }],
-    imagePath:['/assets/images/img/Model1_4/ff-2.jpg', '/assets/images/img/Model1_4/ff-1.jpg', '/assets/images/img/Model1_4/ff-3.jpg']
+    imagePath:['/assets/images/img/Model1_4/ff-2.jpg', '/assets/images/img/Model4/ff-04.jpg','/assets/images/img/Model1_4/ff-1.jpg', '/assets/images/img/Model1_4/ff-3.jpg']
 })
 
 const item14 = new Item({
@@ -827,53 +827,53 @@ const item21 = new Item({
         color: 'ash blue',
         quantity: 4
         }],     
-    imagePath:['/assets/images/img/Model4/ff-04.jpg', '/assets/images/img/Model4/ff-05.jpg', '/assets/images/img/Model4/ff-06.jpg', '/assets/images/img/Model4/ff-07.jpg', '/assets/images/img/Model4/ff-08.jpg', '/assets/images/img/Model4/ff-09.jpg', '/assets/images/img/Model4/ff-10.jpg']
+    imagePath:['/assets/images/img/Model4/ff-05.jpg', '/assets/images/img/Model4/ff-06.jpg', '/assets/images/img/Model4/ff-07.jpg', '/assets/images/img/Model4/ff-08.jpg', '/assets/images/img/Model4/ff-09.jpg', '/assets/images/img/Model4/ff-10.jpg']
 })
 
 
 //categories
 const category1 = new Category({
     _id: new mongoose.Types.ObjectId(),
+    categoryName: 'New Arrivals',
+    items: [item19, item18, item17, item16, item15, item14, item13,
+        item12, item11, item10, item9, item8, item7, item6, item5, 
+        item4, item3, item2, item1],
+    imagePath: '/assets/images/newarrivals.PNG'
+})
+
+const category2 = new Category({
+    _id: new mongoose.Types.ObjectId(),
     categoryName: 'Bottoms',
     items: [item19, item14, item9, item4],
     imagePath: '/assets/images/bottoms.PNG'
 })
 
-const category2 = new Category({
+const category3 = new Category({
     _id: new mongoose.Types.ObjectId(),
     categoryName: 'Dresses',
-    items: [item16, item12, item8, item5],
+    items: [item16, item12, item8, item5, item20],
     imagePath: '/assets/images/dresses.PNG'
 })
 
-const category3 = new Category({
+const category4 = new Category({
     _id: new mongoose.Types.ObjectId(),
     categoryName: 'Tops',
-    items: [item21, item20, item15, item13, item7],
+    items: [item21, item15, item13, item7],
     imagePath: '/assets/images/tops.PNG'
 })
 
-const category4 = new Category({
+const category5 = new Category({
     _id: new mongoose.Types.ObjectId(),
     categoryName: 'Outer Wear',
     items: [item18, item17, item6, item3],
     imagePath : '/assets/images/outerwear.PNG'
 })
 
-const category5 = new Category({
+const category6 = new Category({
     _id: new mongoose.Types.ObjectId(),
     categoryName: 'Two Piece Sets',
     items: [item1, item2, item10, item11],
     imagePath : '/assets/images/twopiece.PNG'
-})
-
-const category6 = new Category({
-    _id: new mongoose.Types.ObjectId(),
-    categoryName: 'New Arrivals',
-    items: [item19, item18, item17, item16, item15, item14, item13,
-        item12, item11, item10, item9, item8, item7, item6, item5, 
-        item4, item3, item2, item1],
-    imagePath: '/assets/images/newarrivals.PNG'
 })
 
 

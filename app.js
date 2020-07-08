@@ -80,6 +80,7 @@ app.use('/api', usersRouter);
 app.use('/api', categoryRouter);
 app.use('/api', cartsRouter);
 app.use('/api', homeRouter);
+
 app.get('*', function (req, res) {
   res.status(200).sendFile(`/`, {root: 'dist/blackhouse-label-client'});
 });

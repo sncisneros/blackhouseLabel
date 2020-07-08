@@ -827,7 +827,7 @@ const item21 = new Item({
         color: 'ash blue',
         quantity: 4
         }],     
-    imagePath:['/assets/images/img/Model4/ff-04.jpg', '/assets/images/img/Model4/ff-05.jpg', '/assets/images/img/Model4/ff-06.jpg', '/assets/images/img/Model4/ff-07.jpg', '/assets/images/img/Model4/ff-08.jpg', '/assets/images/img/Model4/ff-09.jpg', '/assets/images/img/Model4/ff-11.jpg']
+    imagePath:['/assets/images/img/Model4/ff-04.jpg', '/assets/images/img/Model4/ff-05.jpg', '/assets/images/img/Model4/ff-06.jpg', '/assets/images/img/Model4/ff-07.jpg', '/assets/images/img/Model4/ff-08.jpg', '/assets/images/img/Model4/ff-09.jpg', '/assets/images/img/Model4/ff-10.jpg']
 })
 
 
